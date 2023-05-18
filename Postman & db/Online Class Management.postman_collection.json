@@ -1,0 +1,481 @@
+{
+	"info": {
+		"_postman_id": "f04b0404-f858-4659-92e7-71d8fe6e3da2",
+		"name": "Online Class Management",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "19847446"
+	},
+	"item": [
+		{
+			"name": "User",
+			"item": [
+				{
+					"name": "user signup",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"firstName\": \"san\",\n    \"lastName\":\"fro\",\n    \"email\":\"san25@gmail.com\",\n    \"gender\":\"FEMALE\",\n    \"graduation\":\"commerce\",\n    \"phone\":\"+919103486789\",\n    \"password\":\"san1234\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{serverUrl}}/user/signup",
+							"host": [
+								"{{serverUrl}}"
+							],
+							"path": [
+								"user",
+								"signup"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "user login",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"email\":\"admin@gmail.com\",\n    \"password\":\"admin1234\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{serverUrl}}/user/login",
+							"host": [
+								"{{serverUrl}}"
+							],
+							"path": [
+								"user",
+								"login"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Admin",
+			"item": [
+				{
+					"name": "update user role",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "{{Authorization}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"id\":\"6464927cd68afe9ab23ac4cd\"\n\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{serverUrl}}/admin/update-role",
+							"host": [
+								"{{serverUrl}}"
+							],
+							"path": [
+								"admin",
+								"update-role"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "list user by id",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "{{Authorization}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{serverUrl}}/admin/list/6464a04bdf7a7e96e619ad84",
+							"host": [
+								"{{serverUrl}}"
+							],
+							"path": [
+								"admin",
+								"list",
+								"6464a04bdf7a7e96e619ad84"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get users by filters",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "{{Authorization}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{serverUrl}}/admin/users-filters?page=1&status=online&search=t&role=user",
+							"host": [
+								"{{serverUrl}}"
+							],
+							"path": [
+								"admin",
+								"users-filters"
+							],
+							"query": [
+								{
+									"key": "page",
+									"value": "1",
+									"description": "required"
+								},
+								{
+									"key": "status",
+									"value": "online",
+									"description": "optional"
+								},
+								{
+									"key": "search",
+									"value": "t",
+									"description": "optional"
+								},
+								{
+									"key": "role",
+									"value": "user",
+									"description": "optional"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Category",
+			"item": [
+				{
+					"name": "Create category",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "{{Authorization}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n   \"title\":\"Mongodb\",\n   \"description\":\"MongoDB is a document database used to build highly available and scalable internet applications.\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{serverUrl}}/category/create",
+							"host": [
+								"{{serverUrl}}"
+							],
+							"path": [
+								"category",
+								"create"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "update category",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "{{Authorization}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"id\":\"6464b33fe2687e0691352712\",\n    \"title\":\"Nodejs\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{serverUrl}}/category/update",
+							"host": [
+								"{{serverUrl}}"
+							],
+							"path": [
+								"category",
+								"update"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "list all categories",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "{{Authorization}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{serverUrl}}/category/list?page=1&search=n",
+							"host": [
+								"{{serverUrl}}"
+							],
+							"path": [
+								"category",
+								"list"
+							],
+							"query": [
+								{
+									"key": "page",
+									"value": "1",
+									"description": "required"
+								},
+								{
+									"key": "search",
+									"value": "n",
+									"description": "optional"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Course",
+			"item": [
+				{
+					"name": "Create course",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "{{Authorization}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n   \"categoryId\":\"6464b3b2e2687e0691352724\",\n   \"professorId\":\"6464927cd68afe9ab23ac4cd\",\n   \"title\":\"advanced mongodb\",\n   \"duration\":\"3 month\",\n   \"topics\":[\"aggregate\",\"lookups\",\"joins\"]\n\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{serverUrl}}/course/create",
+							"host": [
+								"{{serverUrl}}"
+							],
+							"path": [
+								"course",
+								"create"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "update course",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "{{Authorization}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"id\":\"64652e53abee62ee2fd33959\",\n    \"title\":\"updated mongo\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{serverUrl}}/course/update",
+							"host": [
+								"{{serverUrl}}"
+							],
+							"path": [
+								"course",
+								"update"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "list course by id",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "{{Authorization}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{serverUrl}}/course/list/64652e53abee62ee2fd33959",
+							"host": [
+								"{{serverUrl}}"
+							],
+							"path": [
+								"course",
+								"list",
+								"64652e53abee62ee2fd33959"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "list all courses",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "{{Authorization}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"email\":\"gill@gmail.com\",\n    \"password\":\"gill1234\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{serverUrl}}/course/list",
+							"host": [
+								"{{serverUrl}}"
+							],
+							"path": [
+								"course",
+								"list"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "delete course by id",
+					"request": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "{{Authorization}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{serverUrl}}/course/delete/6465328e0c1662999cb8a7a3",
+							"host": [
+								"{{serverUrl}}"
+							],
+							"path": [
+								"course",
+								"delete",
+								"6465328e0c1662999cb8a7a3"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "User Details",
+			"item": [
+				{
+					"name": "Join course",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "{{Authorization}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{serverUrl}}/userdetail/join-course/64652e53abee62ee2fd33959",
+							"host": [
+								"{{serverUrl}}"
+							],
+							"path": [
+								"userdetail",
+								"join-course",
+								"64652e53abee62ee2fd33959"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}
